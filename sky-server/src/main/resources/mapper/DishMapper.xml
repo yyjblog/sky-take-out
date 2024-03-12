@@ -46,5 +46,15 @@
         WHERE id = #{id}
     </update>
 
+    <select id="listByCategoryId" resultType="Dish">
+        select * from dish
+        <where>
+            <if test="category_id != null">
+                and category_id = #{categoryId}
+            </if>
+        </where>
+        order by create_time desc
+    </select>
+
     
 </mapper>
