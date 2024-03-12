@@ -7,6 +7,13 @@
         values
             (#{name}, #{categoryId}, #{price}, #{image}, #{description}, #{createTime}, #{updateTime}, #{createUser}, #{updateUser}, #{status})
     </insert>
+
+    <delete id="deleteByIds">
+        delete from dish where id in
+        <foreach collection="ids" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </delete>
     
     <select id="pageQuery" resultType="com.sky.vo.DishVO">
         SELECT d.* , c.`name` AS category_name FROM dish d LEFT JOIN category c on d.category_id = c.id
@@ -23,5 +30,6 @@
         </where>
         order by d.create_time desc
     </select>
+
     
 </mapper>
