@@ -51,4 +51,12 @@ public interface EmployeeMapper {
      */
     @Select("select * from employee where id = #{id}")
     Employee getById(Long id);
+
+    /**
+     * 根据id获取加密后的密码
+     * @param empId
+     * @return
+     */
+    @Select("SELECT `password` FROM employee WHERE id = #{empId}")
+    String getPasswordById(Long empId);
 }
