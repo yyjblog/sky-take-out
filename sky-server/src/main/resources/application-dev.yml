@@ -11,3 +11,8 @@ sky:
     access-key-id: LTAI5tNdrrnNBdmRAfYPj6Av
     access-key-secret: FiuptZGLuVc0n66mb6ha1bon6Gefqg
     bucket-name: web-jierjie-sky-take-out
+  redis:
+    host: localhost
+    port: 6379
+    password: 123456
+    database: 10
