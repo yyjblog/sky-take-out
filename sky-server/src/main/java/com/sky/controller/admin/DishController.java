@@ -108,7 +108,7 @@ public class DishController {
         cleanCache("dish_*");
 
 
-        return null;
+        return Result.success();
     }
 
     /**
