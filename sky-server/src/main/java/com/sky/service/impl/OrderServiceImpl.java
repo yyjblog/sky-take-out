@@ -86,6 +86,8 @@ public class OrderServiceImpl implements OrderService {
         orders.setPhone(addressBook.getPhone());
         orders.setCancelReason(addressBook.getConsignee());
         orders.setUserId(userId);
+        orders.setAddress(addressBook.getDetail());
+        orders.setConsignee(addressBook.getConsignee());
 
         orderMapper.insert(orders);
 
@@ -202,6 +204,28 @@ public class OrderServiceImpl implements OrderService {
 
 
         return new PageResult(page.getTotal(),list);
+    }
+
+    /**
+     * 历史订单查询
+     * @param id
+     * @return
+     */
+    public OrderVO details(Long id) {
+        //获取订单
+        Orders order = orderMapper.getById(id);
+
+        //获取订单详情
+        Long orderId = order.getId();
+        List<OrderDetail> orderVOList = orderDetailMapper.getByOrderId(orderId);
+
+        //封装到VO对象中
+        OrderVO orderVO = new OrderVO();
+        BeanUtils.copyProperties(order,orderVO);
+        orderVO.setOrderDetailList(orderVOList);
+
+
+        return orderVO;
     }
 
 
