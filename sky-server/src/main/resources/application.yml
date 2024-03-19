@@ -60,3 +60,7 @@ sky:
     weChatPayCertFilePath: ${sky.wechat.weChatPayCertFilePath}
     notifyUrl: ${sky.wechat.notifyUrl}
     refundNotifyUrl: ${sky.wechat.refundNotifyUrl}
+  shop:
+    address: 中南大学铁道学院电子楼120
+  baidu:
+    ak: OBdehyusfGE2KRAvik4jhzb0gQ1VgfA
