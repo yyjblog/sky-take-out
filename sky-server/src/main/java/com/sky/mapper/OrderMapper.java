@@ -69,4 +69,11 @@ public interface OrderMapper {
      */
     @Select("SELECT SUM(amount) FROM orders WHERE `status` = #{status} AND DATE(order_time) = #{dayTime}")
     Double sumByMap(Map map);
+
+    /**
+     * 根据动态条件统计订单数量
+     * @param map
+     * @return
+     */
+    Integer countByMap(Map map);
 }
