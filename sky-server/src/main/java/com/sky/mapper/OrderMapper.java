@@ -68,7 +68,6 @@ public interface OrderMapper {
      * @param map
      * @return
      */
-    @Select("SELECT SUM(amount) FROM orders WHERE `status` = #{status} AND DATE(order_time) = #{dayTime}")
     Double sumByMap(Map map);
 
     /**
